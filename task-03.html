@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 3</title>
+    <link rel="stylesheet" href="css/common.css" />
+    <style>
+      #name-input {
+        width: 360px;
+        color: #2e2f42;
+        font-family: Montserrat;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px; /* 150% */
+        letter-spacing: 0.64px;
+        border-radius: 4px;
+        border: 1px solid #808080;
+      }
+      #name-input:hover,
+      #name-input:focus {
+        border-color: #000;
+      }
+      .input-title,
+      #name-output {
+        color: #2e2f42;
+        font-family: Montserrat;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 32px; /* 133.333% */
+        letter-spacing: 0.96px;
+      }
+    </style>
+  </head>
+  <body>
+    <p><a href="index.html">Go back</a></p>
+
+    <input type="text" id="name-input" placeholder="Please enter your name" />
+    <h1 class="input-title">Hello, <span id="name-output">Anonymous</span>!</h1>
+
+    <script src="js/task-03.js" type="module"></script>
+  </body>
+</html>

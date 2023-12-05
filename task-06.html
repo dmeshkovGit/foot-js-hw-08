@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 6</title>
+    <link rel="stylesheet" href="css/common.css" />
+    <style>
+      #controls,
+      #boxes {
+        border-radius: 8px;
+        background: #f6f6fe;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 16px;
+        padding: 32px;
+        max-width: 486px;
+        margin-bottom: 16px;
+      }
+      #controls input {
+        text-align: center;
+        padding: 8px auto;
+        width: 150px;
+        color: #2e2f42;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px; /* 150% */
+        letter-spacing: 0.64px;
+        border-radius: 8px;
+        border: 1px solid #808080;
+      }
+
+      #controls button {
+        padding: 8px 15px;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px; /* 150% */
+        letter-spacing: 0.64px;
+        border-radius: 8px;
+        width: 120px;
+        border-width: 0px;
+      }
+
+      #controls button[data-create] {
+        background: #4e75ff;
+      }
+      #controls button[data-destroy] {
+        background: #ff4e4e;
+      }
+
+      #controls button[data-destroy]:focus,
+      #controls button[data-destroy]:hover {
+        background: #ff7070;
+      }
+
+      #controls button[data-create]:focus,
+      #controls button[data-create]:hover {
+        background: #6c8cff;
+      }
+
+      #boxes {
+        align-items: start;
+      }
+    </style>
+  </head>
+  <body>
+    <p><a href="index.html">Go back</a></p>
+
+    <div id="controls">
+      <input type="number" min="1" max="100" step="1" />
+      <button type="button" data-create>Create</button>
+      <button type="button" data-destroy>Destroy</button>
+    </div>
+
+    <div id="boxes"></div>
+
+    <script src="js/task-06.js" type="module"></script>
+  </body>
+</html>
