@@ -89,7 +89,8 @@ const modal = basicLightbox.create(`
     
     modal.show();
 
-const modalClose = (event) => {
+    const modalClose = (event) => {
+   event.preventDefault();
 if (event.code === "Escape") {
   modal.close()
     window.removeEventListener("keydown", modalClose)
