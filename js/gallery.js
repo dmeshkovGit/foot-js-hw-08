@@ -67,16 +67,24 @@ const images = [
 
 const gallery = document.querySelector(".gallery")
   gallery.innerHTML = images.reduce((html, image) =>
-  html += `<li class = gallery-item>
-  <img src="${image.preview}" alt = "${image.description}" data-original="${image.original}" >
+  html += `<li class="gallery-item">
+  <a class="gallery-link" href="${image.original}">
+    <img
+      class="gallery-image"
+      src="${image.preview}"
+      data-source="${image.original}"
+      alt="${image.description}"
+    />
+  </a>
 </li>`, "")
 
 gallery.addEventListener("click", (event => {
+  event.preventDefault();
   if (event.target.nodeName !== "IMG") {
     return;}
   else{
 const modal = basicLightbox.create(`
-<img src="${event.target.dataset.original}" alt = "${event.target.alt}" >
+<img src="${event.target.dataset.source}" alt = "${event.target.alt}" >
   `, { className: 'modal' }, { closable: true });
     
     modal.show();
