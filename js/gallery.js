@@ -66,6 +66,7 @@ const images = [
 ];
 
 const gallery = document.querySelector(".gallery")
+
   gallery.innerHTML = images.reduce((html, image) =>
   html += `<li class="gallery-item">
   <a class="gallery-link" href="${image.original}">
@@ -76,25 +77,30 @@ const gallery = document.querySelector(".gallery")
       alt="${image.description}"
     />
   </a>
-</li>`, "")
+</li>`, "");
+
 
 gallery.addEventListener("click", (event => {
   event.preventDefault();
-  if (event.target.nodeName !== "IMG") {
-    return;}
-  else{
-const modal = basicLightbox.create(`
-<img src="${event.target.dataset.source}" alt = "${event.target.alt}" >
-  `, { className: 'modal' }, { closable: true });
-    
-    modal.show();
-
+  if (event.target.nodeName !== "IMG") { return }
+  else {
     const modalClose = (event) => {
-   event.preventDefault();
-if (event.code === "Escape") {
-  modal.close()
-    window.removeEventListener("keydown", modalClose)
-  }}
-  window.addEventListener("keydown", modalClose)}}));
+      event.preventDefault();
+      if (event.key === "Escape") {
+        modal.close()
+      }
+    };
+    const modal = basicLightbox.create(`
+<img src="${event.target.dataset.source}" alt = "${event.target.alt}" >
+  `, {
+      onShow: () => { window.addEventListener("keydown", modalClose) },
+      onClose: () => { window.removeEventListener("keydown", modalClose) },
+      className: 'modal',
+      closable: true,
+    });
+    modal.show();
+  }}));
 
+
+   
 
