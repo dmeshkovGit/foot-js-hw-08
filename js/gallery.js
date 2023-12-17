@@ -79,28 +79,19 @@ const gallery = document.querySelector(".gallery")
   </a>
 </li>`, "");
 
-
-gallery.addEventListener("click", (event => {
+  gallery.addEventListener("click", (event) => {
   event.preventDefault();
-  if (event.target.nodeName !== "IMG") { return }
-  else {
+  if (event.target.nodeName !== "IMG") {  return;  } else {
     const modalClose = (event) => {
       event.preventDefault();
       if (event.key === "Escape") {
-        modal.close()
-      }
-    };
+        modal.close(); }};
     const modal = basicLightbox.create(`
-<img src="${event.target.dataset.source}" alt = "${event.target.alt}" >
-  `, {
-      onShow: () => { window.addEventListener("keydown", modalClose) },
-      onClose: () => { window.removeEventListener("keydown", modalClose) },
+      <img src="${event.target.dataset.source}" alt="${event.target.alt}">
+    `, {
+      onShow: () => { window.addEventListener("keydown", modalClose); },
+      onClose: () => { window.removeEventListener("keydown", modalClose);},
       className: 'modal',
       closable: true,
-    });
-    modal.show();
-  }}));
-
-
-   
+    });  modal.show();  }});
 
